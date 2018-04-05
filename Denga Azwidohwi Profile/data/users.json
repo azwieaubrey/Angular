@@ -1,0 +1,82 @@
+[
+    {
+        "_id": "1",
+        "isActive": true,
+        "age": 25,
+        "name": "Azwidohwi Denga",
+        "gender": "male",
+        "company": "Dengasons`s",
+        "email": "azwieaubrey12@gmai.com",
+        "phone": "+27 73 540 1527",
+        "address": "Urban 8 Charles & van bek Street new Doorfontein johannesburg 2084",
+        "about": "Denga Azwidohwi a software developer who worked in velisa africa academy as a data analyst and business analyst for a period of 9 months as a internship and then move to company called What The Functionality In rooderport rumsig who works there as a intern for software developer and then left the company due to some factors",
+        "greeting": "Hello, Azwidohwi Denga! You have 4 unread messages."
+    },
+    {
+        "_id": "2",
+        "isActive": true,
+        "age": 28,
+        "name": "Glenda Denga",
+        "gender": "female",
+        "company": "HollyWood",
+        "email": "DengaGlenda@gmail.com",
+        "phone": "+27 76 074 1828",
+        "address": "mbv hancock & Quartz Street Joubert Park johannesburg 2001",
+        "about": "Glenda Denga works at hollywood since 2013 and she enjoys her work and also enjoy working with her colique and with different people",
+        "greeting": "Hello, Glenda Denga! You have no new messages."
+    },
+     {
+        "_id": "3",
+        "index": 3,
+        "isActive": true,
+        "age": 25,
+        "name": "Mamukhwana Ndivhuwo",
+        "gender": "male",
+        "company": "NetGex",
+        "email": "MamukhwanaNdivhuwo@gmail.com",
+        "phone": "+27 61 433 4462",
+        "address": "Claim & Wolmarans Street Joubert Park johannesburg 2001",
+        "about": "mamukhwana Ndivhuwo is  web developer at netgex company and he studied It at RGI and then also UX design, currently he is a web develpoper who uses wordpress and he is good on his work and he enjoys it",
+        "greeting": "Hello, mamukhwana Ndivhuwo! You have 1 unread messages."
+    },
+     {
+        "_id": "4",
+        "isActive": true,
+        "age": 25,
+        "race": "black",
+        "name": "Ramusugu Rendani",
+        "gender": "male",
+        "company": "KK Engineerng",
+        "email": "RamusuguRendani@gmail.com",
+        "phone": "+27 71 959 4024",
+        "address": "Urban 8 Charles & van bek Street new Doorfontein johannesburg 2084",
+        "about": "ramusugu rendani studied at jeppe college electrical engineering heavy and he works at kk engineering as electrical engineering",
+        "greeting": "Hello, Ramusugu Rendani! You have no new messages."
+    },
+    {
+        "_id": "5",
+        "isActive": true,
+        "age": 25,
+        "name": "Nndwammbi Vhulenda",
+        "gender": "male",
+        "company": "Eskom Engineerng",
+        "email": "ndwammbivhulenda@gmail.com",
+        "phone": "+27 79 907 6698",
+        "address": "stand number 001 Nzhelele Tshedza Limpopo",
+        "about": "Nndwammbi Vhulenda studied at Centeral Johannesburg college Civil engineering heavy and then he moved during his course and he wengt back to lim,popo to complete/ finalise his qualification and makwarela Techniven college and he works at TT Engineering as quantity surveyor",
+        "greeting": "Hello, Nndwammbi Vhulenda! You have no new messages."
+    },
+     {
+        "_id": "6",
+        "isActive": true,
+        "age": 24,
+        "name": "Gadisi Matodzi",
+        "gender": "female",
+        "company": "Unisa",
+        "email": "gadisimatodzi@gmail.com",
+        "phone": "+27 82 488 4279",
+        "address": "gadisi matodzi she did a nursing and the left for teaching she is currently finishing her teaching course",
+        "greeting": "Hello, Gadisi Matodzi! You have no new messages."
+    }
+    
+]

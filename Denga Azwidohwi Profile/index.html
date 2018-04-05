@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html ng-app="AngJS">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Denga Azwidohwi Profile</title>
+    <script src="libs/js/angular.min.js" type="text/javascript"></script>
+
+    <script src="index.js" type="text/javascript"></script>
+</head>
+<body ng-controller="MainCtrl">
+    <div class="jumbotron">
+        <div class="container">
+            <p ng-show="search != ''"><i>Searching for {{search}}... <i class="fa fa-spinner fa-spin"></i></i></i></p>
+            <h1>Azwidohwi Denga Angular JS Profile!</h1>
+        </div>
+
+        <div class="container" ng-if="selectedUser">
+          <div class="row">
+            <form class="form" role="form">
+                <div class="form-group col-md-4">
+                    <label for="name">Name</label>
+                    <input type="text" ng-model="selectedUser.name" class="form-control" id="name">
+                </div>
+                <div class="form-group col-md-4">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" ng-model="selectedUser.email" class="form-control" id="email">
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="address">Address</label>
+                    <input type="text" ng-model="selectedUser.address" class="form-control" id="address">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="age">Age</label>
+                    <input type="text" ng-model="selectedUser.age" class="form-control" id="age">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="company">Company</label>
+                    <input type="text" ng-model="selectedUser.company" class="form-control" id="company">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="message">Message</label>
+                    <input type="text" ng-model="selectedUser.greeting" class="form-control" id="greeting">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="phone">Cell Number</label>
+                    <input type="text" ng-model="selectedUser.phone" class="form-control" id="phone">
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <div class="container" ng-controller="ListCtrl">
+
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="limit">Limit :</label>
+                <input type="text" id="limit" ng-model="limit" class="form-control">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label>Display mode :</label><br>
+                <button type="submit" class="btn btn-primary" ng-click="switch()">
+                    <i ng-if="mode === 0" class="fa fa-th"></i>
+                    <i ng-if="mode === 1" class="fa fa-list"></i>
+                </button>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="search">Search :</label>
+                <input type="text" placeholder="Search..." id="search" ng-model="search" class="form-control">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label>Gender :</label><br>
+                <button type="submit" class="btn"
+                        ng-class="{'btn-primary': ordering.gender === 'female'}"
+                        ng-click="ordering.gender = 'female'">
+                    <i class="fa fa-female"></i>
+                </button>
+                <button type="submit" class="btn"
+                        ng-class="{'btn-primary': ordering.gender === 'male'}"
+                        ng-click="ordering.gender = 'male'">
+                    <i class="fa fa-male"></i>
+                </button>
+                <button type="submit" class="btn"
+                        ng-class="{'btn-primary': ordering.gender === 'all'}"
+                        ng-click="ordering.gender = 'all'">
+                    <i class="fa fa-male"></i>
+                    <i class="fa fa-female"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="row" ng-if="mode === 0">
+            <div class="col-md-3" ng-repeat="user in users | filter:search | limitTo:limit | gender:ordering.gender">
+                <h2>{{user.name}} <i class="fa" ng-class="{'fa-mars': user.gender === 'male','fa-venus' : user.gender === 'female'}"></i></h2>
+                <p>{{user.about | limitTo: 90}}{{user.about.length > 90 ? '...' : ''}}</p>
+                <p><a class="btn btn-default" href="#" ng-click="selectUser(user);" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+
+        <div ng-if="mode === 1">
+            <table class="table">
+                <tr>
+                    <th ng-click="ordering.field = 'name'; ordering.reverse = !ordering.reverse">
+                        Name
+                        <i class="fa"
+                           ng-show="ordering.field === 'name'"
+                           ng-class="ordering.reverse ? 'fa-chevron-up':'fa-chevron-down'"></i>
+                    </th>
+                    <th ng-click="ordering.field = 'email'; ordering.reverse = !ordering.reverse">
+                        Email
+                        <i class="fa"
+                           ng-show="ordering.field === 'email'"
+                           ng-class="ordering.reverse ? 'fa-chevron-up':'fa-chevron-down'"></i>
+                    </th>
+                    <th ng-click="ordering.field = 'age'; ordering.reverse = !ordering.reverse">
+                        Age
+                        <i class="fa"
+                           ng-show="ordering.field === 'age'"
+                           ng-class="ordering.reverse ? 'fa-chevron-up':'fa-chevron-down'"></i>
+                    </th>
+                    <th ng-click="ordering.field = 'about'; ordering.reverse = !ordering.reverse">
+                        About
+                        <i class="fa"
+                           ng-show="ordering.field === 'about'"
+                           ng-class="ordering.reverse ? 'fa-chevron-up':'fa-chevron-down'"></i>
+                    </th>
+                    <th>View</th>
+                </tr>
+                <tr ng-repeat="user in users | filter:search | limitTo:limit | orderBy:ordering.field:ordering.reverse | gender:ordering.gender"
+                    ng-class="(user.gender === 'male')? 'male':'female'">
+                    <td>{{user.name}} <i class="fa" ng-class="{'fa-mars': user.gender === 'male','fa-venus' : user.gender === 'female'}"></i></td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.about | limitTo: 90}}{{user.about.length > 90 ? '...' : ''}}</td>
+                    <td>
+                        <a type="submit" class="btn btn-primary" href="#"
+                           ng-click="selectUser(user);">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <hr>
+
+        <footer>
+            <p>&copy;Denga Azwidohwi 2018</p>
+        </footer>
+    </div>
+
+    <link href="libs/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="libs/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="style/style.css" rel="stylesheet"/>
+</body>
+</html>
